@@ -28,7 +28,7 @@ class QuizQuestons : AppCompatActivity() {
         val question_img: ImageView = findViewById(R.id.question_img);
 
         val position = 1;
-
+//SAD
         val Questions = Constants.getQuestions();
 
         val forQuestion = Questions[position-1];

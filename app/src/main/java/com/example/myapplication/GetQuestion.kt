@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 object Constants{
-    fun getQuestions():ArrayList<Question>{
+    fun getQuestions(k:Int):Question{
         var questionsList=ArrayList<Question>();
         val que1 = Question(
             1, "What country does this flag belong to?",
@@ -101,6 +101,6 @@ object Constants{
         )
 
         questionsList.add(que10)
-        return questionsList;
+        return questionsList[k];
     }
 }

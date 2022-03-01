@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity() {
             }else{
                 val intent= Intent(this,QuizQuestons::class.java);
                 startActivity(intent)
-                val Questions=Constants.getQuestions();
-                Log.d("TAG","${Questions.size}")
 
             }
         }

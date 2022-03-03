@@ -41,12 +41,18 @@ class QuizQuestons : AppCompatActivity() {
             }
         }
 
-        onUpdateQuestions(1, arrayOfElements);
+        onUpdateQuestions(countOfPages, arrayOfElements);
 
         button.setOnClickListener{
             if(flagOfCheck){
-                checkTrueAnswer(1, arrayOfElements, selectedQuestion);
+                checkTrueAnswer(countOfPages, arrayOfElements, selectedQuestion);
                 flagOfCheck=false;
+            }
+            else{
+                setDefaultBorder(arrayOfElements);
+                countOfPages++;
+                onUpdateQuestions(countOfPages, arrayOfElements);
+                flagOfCheck = true;
             }
 
         }
@@ -87,39 +93,17 @@ class QuizQuestons : AppCompatActivity() {
     private fun onUpdateQuestions(count:Int, arrayOfElems:ArrayList<TextView>){
 
         val question_img: ImageView = findViewById(R.id.question_img);
+        val tv_question:TextView = findViewById(R.id.tv_question);
 
         val Data:Question=getQuestions(count);
 
+        question_img.setImageResource(Data.image);
+        tv_question.setText(Data.question);
         arrayOfElems[0].setText(Data.optionOne);
         arrayOfElems[1].setText(Data.optionTwo);
-        arrayOfElems[2].setText(Data.optionThree)
-        arrayOfElems[3].setText(Data.optionFour)
+        arrayOfElems[2].setText(Data.optionThree);
+        arrayOfElems[3].setText(Data.optionFour);
 
     }
 
 }
-
-//fg gf hfg
-//        val position = 1;
-////SAD
-//        val Questions = Constants.getQuestions();
-//
-//        val forQuestion = Questions[position-1];
-//
-//        ProgressElem.progress = position;
-//
-//        num_of_progress.setText("${position}/10");
-//
-//        tv_option_one.setText(forQuestion.optionOne);
-//
-//        tv_option_two.setText(forQuestion.optionTwo);
-//
-//        tv_option_three.setText(forQuestion.optionThree);
-//
-//        tv_option_four.setText(forQuestion.optionFour);
-//
-//        question_img.setImageResource(forQuestion.image);
-
-//        val num_of_progress:TextView = findViewById(R.id.num_of_progress);
-//
-//        val ProgressElem:ProgressBar = findViewById(R.id.progress);

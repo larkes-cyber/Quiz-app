@@ -20,6 +20,7 @@ class QuizQuestons : AppCompatActivity() {
 
         onUpdateQuestions(1);
 
+        //fg gf hfg
 //        val position = 1;
 ////SAD
 //        val Questions = Constants.getQuestions();

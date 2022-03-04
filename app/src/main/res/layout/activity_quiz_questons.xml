@@ -54,7 +54,9 @@
                 android:textColor="#363A43"
                 android:textSize="15sp"
                 android:layout_margin="20dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="0/10"
+                />
         </LinearLayout>
         <TextView
             android:id="@+id/tv_option_one"

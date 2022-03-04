@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,13 +10,15 @@ import android.widget.*
 import com.example.myapplication.Constants.getQuestions
 
 
-class QuizQuestons : AppCompatActivity() {
+class QuizQuestons: AppCompatActivity() {
 
     private var countOfPages = 0;
 
     private var flagOfCheck= true;
 
     private lateinit var selectedQuestion:TextView;
+
+    private var theRightAnswers:Int = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,7 @@ class QuizQuestons : AppCompatActivity() {
         onUpdateQuestions(countOfPages, arrayOfElements);
 
         button.setOnClickListener{
+
             if(flagOfCheck){
                 checkTrueAnswer(countOfPages, arrayOfElements, selectedQuestion);
                 flagOfCheck=false;
@@ -51,12 +55,29 @@ class QuizQuestons : AppCompatActivity() {
             else{
                 setDefaultBorder(arrayOfElements);
                 countOfPages++;
+                if(countOfPages==10){
+                    val intent = Intent(this,ScreenOfResults::class.java);
+                    intent.putExtra("value", theRightAnswers.toString());
+                    startActivity(intent)
+                    return@setOnClickListener;
+                }
+                uploadOfProgress();
                 onUpdateQuestions(countOfPages, arrayOfElements);
                 flagOfCheck = true;
             }
 
         }
 
+
+    }
+
+    private fun uploadOfProgress(){
+
+        val progress:ProgressBar = findViewById(R.id.progress);
+        val numOfProgress:TextView = findViewById(R.id.num_of_progress);
+
+        progress.setProgress(countOfPages);
+        numOfProgress.setText("${countOfPages}/10");
 
     }
 
@@ -79,6 +100,9 @@ class QuizQuestons : AppCompatActivity() {
 
         if(selectedQuestion != arrayOfElems[numOfAnswer-1]){
             selectedQuestion.setBackgroundResource(R.drawable.is_not_right_answer);
+        }
+        else{
+            theRightAnswers++;
         }
 
     }

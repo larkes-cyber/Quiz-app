@@ -5,14 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ScreenOfResults"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:text="It's end"
+            android:textColor="#ffff"
+            android:layout_marginTop="30dp"
+            />
         <TextView
             android:id="@+id/textOfResults"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50sp"
-            android:text="sdfsdf"
+            android:textSize="90sp"
+            android:text="5/10"
+            android:textColor="#ffff"
+            android:layout_marginTop="170dp"
             />
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="160dp"
+            android:layout_width="210dp"
+            android:layout_height="70dp"
+            android:text="repeat"
+            android:textSize="20sp"
+                />
 
 </LinearLayout>

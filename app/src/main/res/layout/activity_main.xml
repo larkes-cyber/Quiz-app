@@ -47,15 +47,15 @@
                 android:textStyle="bold"
 
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Please enter your name"
-                android:textSize="16sp"
                 android:layout_gravity="center"
+                android:text="Please enter your name"
                 android:textColor="#7A8089"
-                android:textStyle="bold"
-                />
+                android:textSize="16sp"
+                android:textStyle="bold" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
